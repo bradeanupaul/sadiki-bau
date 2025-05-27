@@ -48,7 +48,7 @@ const Contact = () => {
       } else {
         setMessage("Fehler beim Senden. Bitte versuchen Sie es erneut.");
       }
-    } catch (_err) {
+    } catch {
       setMessage("Serverfehler. Bitte versuchen Sie es später noch einmal.");
     } finally {
       setLoading(false);
