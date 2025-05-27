@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import { Outfit, Roboto, Archivo_Black } from "next/font/google";
+import {
+  Outfit,
+  Roboto,
+  Archivo_Black,
+  Oswald,
+} from "next/font/google";
 import ResponsiveNav from "@/components/home/navbar/responsivenav";
 
+// Font setups
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
@@ -24,14 +29,10 @@ const archivo_black = Archivo_Black({
   weight: "400",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const oswald = Oswald({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-oswald",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -46,11 +47,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="de"
       className={clsx(
         roboto.variable,
         outfit.variable,
-        archivo_black.variable
+        archivo_black.variable,
+        oswald.variable,
       )}
     >
       <body>
