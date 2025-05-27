@@ -22,12 +22,12 @@ const Description = () => {
           <p className="text-black font-bold text-md mt-4 leading-snug">
             Erfahren Sie, wie wir Ihre Vision zum Leben erwecken können
           </p>
-          <button
+          <a href="#contact"
             aria-label="Kontaktieren Sie uns"
-            className="bg-red-800 text-white text-sm px-6 py-2 rounded-full hover:bg-black transition mt-2 btn-hover-wipe"
+            className="bg-red-800 text-white text-sm px-6 py-2 rounded-full hover:bg-black transition mt-2 btn-hover-wipe uppercase"
           >
             Kontaktieren Sie uns
-          </button>
+          </a>
         </div>
 
         {/* IMAGE GALLERY */}

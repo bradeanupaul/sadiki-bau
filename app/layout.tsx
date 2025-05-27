@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import clsx from "clsx";
+import Script from "next/script";
+
 import {
   Outfit,
   Roboto,
   Archivo_Black,
   Oswald,
 } from "next/font/google";
+
 import ResponsiveNav from "@/components/home/navbar/responsivenav";
 
 // Font setups
@@ -55,6 +58,39 @@ export default function RootLayout({
         oswald.variable,
       )}
     >
+      <head>
+        <Script
+          id="voiceflow-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(d, t) {
+                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                v.onload = function() {
+                  window.voiceflow.chat.load({
+                    verify: { projectID: '6829e93909bde9328a6077bf' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production',
+                    voice: {
+                      url: "https://runtime-api.voiceflow.com"
+                    }
+                  });
+
+                  // Auto-open chat după ce s-a încărcat
+                  setTimeout(() => {
+                    if (window.voiceflow && window.voiceflow.chat) {
+                      window.voiceflow.chat.open();
+                    }
+                  }, 500);
+                };
+                v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+                v.type = "text/javascript";
+                s.parentNode.insertBefore(v, s);
+              })(document, 'script');
+            `,
+          }}
+        />
+      </head>
       <body>
         <ResponsiveNav />
         {children}
