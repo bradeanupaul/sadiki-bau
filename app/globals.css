@@ -10,9 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-outfit: var(--font-outfit);
+  --font-roboto: var(--font-roboto);
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -24,3 +30,48 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+h1, h2, h3, h4, h5, h6,
+button,
+.button,
+.btn {
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* globals.css */
+.text-sm {
+  font-size: 1rem !important;
+}
+
+.btn-hover-wipe {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+}
+
+.btn-hover-wipe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.15); /* sau rgba(0,0,0,0.1) */
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.btn-hover-wipe:hover::before {
+  transform: translateX(0);
+}
+
+.btn-hover-wipe > * {
+  position: relative;
+  z-index: 10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
