@@ -75,13 +75,6 @@ export default function RootLayout({
                       url: "https://runtime-api.voiceflow.com"
                     }
                   });
-
-                  // Auto-open chat după ce s-a încărcat
-                  setTimeout(() => {
-                    if (window.voiceflow && window.voiceflow.chat) {
-                      window.voiceflow.chat.open();
-                    }
-                  }, 500);
                 };
                 v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
                 v.type = "text/javascript";
